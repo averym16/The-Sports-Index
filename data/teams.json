@@ -1,0 +1,5 @@
+[{"sport":"men_rugby","type":"teams","rank":"tier_1","teams":["Argentina","Australia","England","France","Ireland","Italy","Japan","New Zealand","Scotland","South Africa","Wales"]},
+{"sport":"men_rugby","type":"teams","rank":"tier_2","teams":["Canada","Fiji","Georgia","Namibia","Portugal","Romania","Samoa","Spain","Tonga","United States","Uraguay"]},
+{"sport":"men_rugby","type":"teams","rank":"special","name":"British & Lions","description":"Rugby union team selected from players eligible for the national teams of England, Ireland, Scotland, and Wales. Tour the Southern Hemisphere every 4 years.","next_tour":"2025"},
+{"sport":"women_rugby","type":"teams","rank":"ranking","teams":["England","Canada","New Zealand","France","Ireland","Australia","Scotland","Italy","United States","Wales","Japan","South Africa","Spain","Samoa","Netherlands","Fiji","Hong Kong","Russia","Kazakhstan","Kenya"]}
+]
