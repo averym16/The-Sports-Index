@@ -1,62 +1,118 @@
 // script.js
-const tbody = document.getElementById('league_body');
-const DATA_URL = '../data/leagues.json'; // relative path to JSON
 
-function escapeHtml(str) {
+// CONFIG: filter criteria
+const FILTER = { sport: "men_rugby"};
+const BODY_ID = "league_body";
+
+function esc(str) {
+  if (str === null || str === undefined) return "";
   return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
-async function loadAndRender() {
-  try {
-    const res = await fetch(DATA_URL, {cache: "no-store"});
-    if (!res.ok) throw new Error(`Failed to load ${DATA_URL}: ${res.status} ${res.statusText}`);
-    const data = await res.json();
+function buildTeamList(teams = []) {
+  const ul = document.createElement("ul");
+  ul.className = "teamlist";
+  for (const t of teams) {
+    const li = document.createElement("li");
+    li.textContent = t;
+    ul.appendChild(li);
+  }
+  return ul;
+}
 
-    // Clear existing rows
-    tbody.innerHTML = '';
+function createRow(obj) {
+  const tr = document.createElement("tr");
 
-    // Validate it's an array
-    if (!Array.isArray(data)) {
-      throw new Error('JSON root is not an array');
-    }
+  // League
+  const tdLeague = document.createElement("td");
+  const a = document.createElement("a");
+  a.textContent = obj.league || "";
+  tdLeague.appendChild(a);
+  tr.appendChild(tdLeague);
 
+  // Description
+  const tdDesc = document.createElement("td");
+  tdDesc.textContent = obj.description || "";
+  tr.appendChild(tdDesc);
 
-    data.forEach(item => {
-      const tr = document.createElement('tr');
-      const filter = data.filter(item => item.region === "north_hemisphere");
-      data.forEach(filter => {
-        const league= escapeHtml(filter.league ?? '');
-        const description = escapeHtml(filter.description ?? '');
-        const season = escapeHtml(filter.season ?? '');
-        const schedule_name = escapeHtml(filter.schedule_name ?? '');
-        const schedule_link = escapeHtml(filter.schedule_link ?? '');
-        const watch = escapeHtml(filter.watch ?? '');
-        const teams = escapeHtml(filter.teams ?? '');
+  // Season
+  const tdSeason = document.createElement("td");
+  tdSeason.textContent = obj.season || "";
+  tr.appendChild(tdSeason);
 
-        tr.innerHTML = /*html*/`
-          <td>${league}</td>
-          <td>${description}</td>
-          <td>${season}</td>
-          <td>${teams}</td>
-          <td><a href="${schedule_link}" target="_blank">${schedule_name}</a></td>
-          <td>${watch}</td>
-        `;
+  // Teams
+  const tdTeams = document.createElement("td");
+  tdTeams.appendChild(buildTeamList(Array.isArray(obj.teams) ? obj.teams : []));
+  tr.appendChild(tdTeams);
 
-        tbody.appendChild(tr);
-      });
-    });
+  // Schedule
+  const tdSched = document.createElement("td");
+  if (obj.schedule_link) {
+    const schedA = document.createElement("a");
+    schedA.href = obj.schedule_link;
+    schedA.target = "_blank";
+    schedA.rel = "noopener noreferrer";
+    schedA.textContent = obj.schedule_name || obj.schedule_link;
+    tdSched.appendChild(schedA);
+  } else {
+    tdSched.textContent = obj.schedule_name || "";
+  }
+  tr.appendChild(tdSched);
 
-  } catch (err) {
-    console.error(err);
-    // show a friendly message in the table
-    tbody.innerHTML = `<tr><td colspan="4">Error loading data: ${escapeHtml(err.message)}</td></tr>`;
+  // Watch
+  const tdWatch = document.createElement("td");
+  tdWatch.textContent = obj.watch || "";
+  tr.appendChild(tdWatch);
+
+  return tr;
+}
+
+function populateTable(data = []) {
+  const body = document.getElementById(BODY_ID);
+  if (!body) return;
+
+  body.innerHTML = ""; // clear
+
+  const filtered = data.filter(
+    (item) => item.sport === FILTER.sport
+  );
+
+  if (filtered.length === 0) {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.colSpan = 6;
+    td.textContent = "No leagues found for filter.";
+    tr.appendChild(td);
+    body.appendChild(tr);
+    return;
+  }
+
+  for (const obj of filtered) {
+    body.appendChild(createRow(obj));
   }
 }
 
-// Run on load
-loadAndRender();
+// Load JSON from file, fall back to inline data
+function init() {
+  fetch("../data/leagues.json")
+    .then((resp) => {
+      if (!resp.ok) throw new Error("leagues.json not found");
+      return resp.json();
+    })
+    .then((json) => populateTable(Array.isArray(json) ? json : []))
+    .catch(() => {
+      if (window.LEAGUES_DATA && Array.isArray(window.LEAGUES_DATA)) {
+        populateTable(window.LEAGUES_DATA);
+      } else {
+        populateTable([]);
+      }
+    });
+}
+
+// Run after DOM ready
+document.addEventListener("DOMContentLoaded", init);
