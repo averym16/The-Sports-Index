@@ -1,7 +1,8 @@
 // script.js
 
 // CONFIG: filter criteria
-const FILTER = { sport: "men_rugby"};
+title = document.querySelector("h1");
+const FILTER = title.getAttribute('name');
 const BODY_ID = "league_body";
 
 function esc(str) {
@@ -72,15 +73,15 @@ function createRow(obj) {
   return tr;
 }
 
+
 function populateTable(data = []) {
   const body = document.getElementById(BODY_ID);
   if (!body) return;
 
   body.innerHTML = ""; // clear
-
+  
   const filtered = data.filter(
-    (item) => item.sport === FILTER.sport
-  );
+    (item) => item.sport === FILTER );
 
   if (filtered.length === 0) {
     const tr = document.createElement("tr");
