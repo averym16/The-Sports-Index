@@ -1,6 +1,7 @@
+(function () {
 title = document.querySelector("h1");
-const FILTER = title.getAttribute('name');
-const BODY_ID = "tournament_body";
+const FILTER_TOURNAMENT = title.getAttribute('name');
+const TOURNAMENT_BODY_ID = "tournament_body";
 
 function esc(str) {
   if (str === null || str === undefined) return "";
@@ -42,13 +43,13 @@ function createRow(obj) {
 
 
 function populateTable(data = []) {
-  const body = document.getElementById(BODY_ID);
+  const body = document.getElementById(TOURNAMENT_BODY_ID);
   if (!body) return;
 
   body.innerHTML = ""; // clear
   
   const filtered = data.filter(
-    (item) => item.sport === FILTER );
+    (item) => item.sport === FILTER_TOURNAMENT );
 
   if (filtered.length === 0) {
     const tr = document.createElement("tr");
@@ -84,3 +85,4 @@ function init() {
 
 // Run after DOM ready
 document.addEventListener("DOMContentLoaded", init);
+})();

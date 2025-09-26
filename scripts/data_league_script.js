@@ -1,9 +1,10 @@
 // script.js
 
 // CONFIG: filter criteria
+(function () {
 title = document.querySelector("h1");
-const FILTER = title.getAttribute('name');
-const BODY_ID = "league_body";
+const FILTER_LEAGUE = title.getAttribute('name');
+const LEAGUE_BODY_ID = "league_body";
 
 function esc(str) {
   if (str === null || str === undefined) return "";
@@ -75,13 +76,13 @@ function createRow(obj) {
 
 
 function populateTable(data = []) {
-  const body = document.getElementById(BODY_ID);
+  const body = document.getElementById(LEAGUE_BODY_ID);
   if (!body) return;
 
   body.innerHTML = ""; // clear
   
   const filtered = data.filter(
-    (item) => item.sport === FILTER );
+    (item) => item.sport === FILTER_LEAGUE);
 
   if (filtered.length === 0) {
     const tr = document.createElement("tr");
@@ -117,3 +118,4 @@ function init() {
 
 // Run after DOM ready
 document.addEventListener("DOMContentLoaded", init);
+})();
