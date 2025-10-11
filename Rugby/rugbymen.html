@@ -7,7 +7,7 @@
     <body>
          <nav>
             <ul class="navbar">
-                <li><a href="/../index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="https://www.youtube.com/watch?v=b4Zp75xe6tE&t=11s" target="_blank">About</a></li>
                 <li><a href="#footer">Contact</a></li>
                 <li><a href="https://www.youtube.com/watch?v=V3R9y5v8GUY&t=0h0m11s" target="_blank">Donate</a></li>
@@ -28,7 +28,7 @@
             <section class="leagues">
                 <h3>T1 Leagues</h3>
                 <p>Table includes all T1 Leagues along with Major League Rugby.</p>
-                <table id="league_table">
+                <table class="league_table">
                     <tr class="headings">
                         <th>League</th>
                         <th>Description</th>
@@ -60,34 +60,18 @@
         <section class="Rugby_Teams" id="mens_rugby_teams">
             <h2>Teams</h2>
             <p>Click on any of the teams below to be taken to their website.</p>
-            <h3>Tier 1 Teams</h3>
-            <ul class="T1teams">
-                <li><a>Argentina</a></li>
-                <li><a>Australia</a></li>
-                <li><a>England</a></li>
-                <li><a>France</a></li>
-                <li><a>Ireland</a></li>
-                <li><a>Italy</a></li>
-                <li><a>Japan</a></li>
-                <li><a>New Zealand</a></li>
-                <li><a>Scotland</a></li>
-                <li><a>South Africa</a></li>
-                <li><a>Wales</a></li>
-            </ul>
-            <h3>Tier 2 Teams</h3>
-            <ul class="T2teams">
-                <li><a>Canada</a></li>
-                <li><a>Fiji</a></li>
-                <li><a>Georgia</a></li>
-                <li><a>Namibia</a></li>
-                <li><a>Portugal</a></li>
-                <li><a>Romania</a></li>
-                <li><a>Samoa</a></li>
-                <li><a>Spain</a></li>
-                <li><a>Tonga</a></li>
-                <li><a>United States</a></li>
-                <li><a>Uraguay</a></li>
-            </ul>
+            <table class="team_table">
+                <tr class="team_headings">
+                    <th>Team</th>
+                    <th>Founded</th>
+                    <th>Championships</th>
+                    <th>Rank</th>
+                    <th>Rank Change (Last 10 Year)</th>
+                </tr>
+                <tbody id="team_body">
+                </tbody>                    
+            </table>
+            <script src="../scripts/data_team_script.js"></script>
             <h4>British & Lions</h4>
             <p>Rugby union team selected from players eligible for the national teams of England, Ireland, Scotland, and Wales. Tour the Southern Hemisphere every 4 years.</p>
             <p>Next Tour: 2025</p>
