@@ -60,29 +60,18 @@
         <section class="Rugby_Teams" id="womens_rugby_teams">
             <h2>Teams</h2>
             <p>Click on any of the teams below to be taken to their website.</p>
-            <h3>Top 20 Teams as of June 9th, 2025</h3>
-            <ol class="T20_teams">
-                <li><a>England</a></li>
-                <li><a>Canada</a></li>
-                <li><a>New Zealand</a></li>
-                <li><a>France</a></li>
-                <li><a>Ireland</a></li>
-                <li><a>Australia</a></li>
-                <li><a>Scotland</a></li>
-                <li><a>Italy</a></li>
-                <li><a>United States</a></li>
-                <li><a>Wales</a></li>
-                <li><a>Japan</a></li>
-                <li><a>South Africa</a></li>
-                <li><a>Spain</a></li>
-                <li><a>Samoa</a></li>
-                <li><a>Netherlands</a></li>
-                <li><a>Fiji</a></li>
-                <li><a>Hong Kong</a></li>
-                <li><a>Russia</a></li>
-                <li><a>Kazakhstan</a></li>
-                <li><a>Kenya</a></li>
-            </ol>
+            <table class="team_table">
+                <tr class="team_headings">
+                    <th>Team</th>
+                    <th>Founded</th>
+                    <th>Championships</th>
+                    <th>Rank</th>
+                    <th>Rank Change (Last 10 Year)</th>
+                </tr>
+                <tbody id="team_body">
+                </tbody>                    
+            </table>
+            <script src="../scripts/data_team_script.js"></script>
         </section>
     </body>
     <footer id="footer">

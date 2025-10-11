@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-    
+
   const TEAM_BODY_ID = 'team_body';
   const JSON_URL = '../data/teams.json';
 
@@ -19,6 +19,7 @@
   const flattenTeams = (data, wantedSport) => {
     const out = [];
     const arr = toArray(data);
+
     for (const block of arr) {
       const sport = normalizeSport(block?.sport);
       if (!sport || (wantedSport && sport !== wantedSport)) continue;
@@ -31,7 +32,8 @@
             name: t.name || '',
             founded: t.founded || '',
             championships: t.championships || '',
-            current_rank: t.current_rank || '',
+            current_rank: t.current_rank ?? '',
+            overall_score: t.overall_score ?? block.overall_score ?? '',
             rank_change_last_10_years: t.rank_change_last_10_years || '',
             owner: t.owner || '',
             general_manager: t.general_manager || '',
@@ -39,14 +41,15 @@
           });
         }
       } else if (block.name) {
-        // Handle single-entry sections like British & Lions
+        // Handle single-entry sections
         out.push({
           sport,
           rank_group: block.rank || '',
           name: block.name || '',
           founded: block.founded || '',
           championships: block.championships || '',
-          current_rank: block.current_rank || '',
+          current_rank: block.current_rank ?? '',
+          overall_score: block.overall_score ?? '',
           rank_change_last_10_years: block.rank_change_last_10_years || ''
         });
       }
@@ -70,6 +73,52 @@
     return tr;
   };
 
+  // Partially sort:
+  // - If current_rank is numeric: sort ascending among those rows
+  // - Else if overall_score is numeric: sort descending among those rows
+  // - If neither: do not move the row (keep original position)
+  const sortTeamsPartial = (teams) => {
+    const keyed = [];
+    const keyedIndexSet = new Set();
+
+    const toNum = (v) => {
+      const n = typeof v === 'string' && v.trim() === '' ? NaN : Number(v);
+      return Number.isFinite(n) ? n : null;
+    };
+
+    teams.forEach((team, idx) => {
+      const rankNum = toNum(team.current_rank);
+      const scoreNum = toNum(team.overall_score);
+      if (rankNum !== null) {
+        keyed.push({ idx, type: 'rank', key: rankNum, team });
+        keyedIndexSet.add(idx);
+      } else if (scoreNum !== null) {
+        keyed.push({ idx, type: 'score', key: scoreNum, team });
+        keyedIndexSet.add(idx);
+      }
+    });
+
+    // rank items first (asc), then score items (desc), stable by original index
+    keyed.sort((a, b) => {
+      if (a.type !== b.type) return a.type === 'rank' ? -1 : 1;
+      if (a.type === 'rank') {
+        if (a.key !== b.key) return a.key - b.key;
+      } else {
+        if (a.key !== b.key) return b.key - a.key;
+      }
+      return a.idx - b.idx;
+    });
+
+    const result = teams.slice();
+    let k = 0;
+    for (let i = 0; i < result.length; i++) {
+      if (keyedIndexSet.has(i)) {
+        result[i] = keyed[k++].team;
+      }
+    }
+    return result;
+  };
+
   const populateTable = (teams) => {
     const body = document.getElementById(TEAM_BODY_ID);
     if (!body) return;
@@ -86,7 +135,9 @@
       return;
     }
 
-    for (const team of teams) {
+    const sorted = sortTeamsPartial(teams);
+
+    for (const team of sorted) {
       body.appendChild(createRow(team));
     }
   };
