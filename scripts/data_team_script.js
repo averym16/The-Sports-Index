@@ -70,6 +70,7 @@
     tr.appendChild(createCell(team.founded || ''));
     tr.appendChild(createCell(team.championships || ''));
     tr.appendChild(createCell(team.current_rank || ''));
+    tr.appendChild(createCell(team.rank_change_last_10_years || ''));
     return tr;
   };
 
@@ -128,7 +129,7 @@
     if (!teams || teams.length === 0) {
       const tr = document.createElement('tr');
       const td = document.createElement('td');
-      td.colSpan = 4; // matches 4 columns created above
+      td.colSpan = 5; // matches 4 columns created above
       td.textContent = 'No teams found for filter.';
       tr.appendChild(td);
       body.appendChild(tr);
