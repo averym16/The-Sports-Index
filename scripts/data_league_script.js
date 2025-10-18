@@ -50,7 +50,7 @@ function createRow(obj) {
   // Teams
   const tdTeams = document.createElement("td");
 
-  if (obj.league === "Sun Belt Conference (SBC)") {
+  if (obj.league === "Sun Belt Conference (SBC)" || obj.league == "Western Conference" || obj.league == "Eastern Conference") {
     const eastTeams = [];
     const westTeams = [];
     let currentDivision = null;
