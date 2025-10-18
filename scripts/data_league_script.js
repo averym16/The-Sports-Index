@@ -65,9 +65,9 @@ function createRow(obj) {
 
     // Create headers and build lists
     const eastHeader = document.createElement("strong");
-    eastHeader.textContent = "East Division:";
+    eastHeader.textContent = "Sun Belt East:";
     const westHeader = document.createElement("strong");
-    westHeader.textContent = "West Division:";
+    westHeader.textContent = "Sun Belt West:";
 
     tdTeams.appendChild(eastHeader);
     tdTeams.appendChild(buildTeamList(eastTeams));
