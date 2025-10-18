@@ -49,8 +49,38 @@ function createRow(obj) {
 
   // Teams
   const tdTeams = document.createElement("td");
-  tdTeams.appendChild(buildTeamList(Array.isArray(obj.teams) ? obj.teams : []));
+
+  if (obj.league === "Sun Belt Conference (SBC)") {
+    const eastTeams = [];
+    const westTeams = [];
+    let currentDivision = null;
+
+    // Split teams into East and West based on markers
+    (Array.isArray(obj.teams) ? obj.teams : []).forEach(team => {
+      if (team.toLowerCase() === "east") currentDivision = "east";
+      else if (team.toLowerCase() === "west") currentDivision = "west";
+      else if (currentDivision === "east") eastTeams.push(team);
+      else if (currentDivision === "west") westTeams.push(team);
+    });
+
+    // Create headers and build lists
+    const eastHeader = document.createElement("strong");
+    eastHeader.textContent = "East Division:";
+    const westHeader = document.createElement("strong");
+    westHeader.textContent = "West Division:";
+
+    tdTeams.appendChild(eastHeader);
+    tdTeams.appendChild(buildTeamList(eastTeams));
+    tdTeams.appendChild(document.createElement("br"));
+    tdTeams.appendChild(westHeader);
+    tdTeams.appendChild(buildTeamList(westTeams));
+  } else {
+    // Default behavior
+    tdTeams.appendChild(buildTeamList(Array.isArray(obj.teams) ? obj.teams : []));
+  }
+
   tr.appendChild(tdTeams);
+
 
   // Schedule
   const tdSched = document.createElement("td");
