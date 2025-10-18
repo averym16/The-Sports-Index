@@ -50,7 +50,7 @@ function createRow(obj) {
   // Teams
   const tdTeams = document.createElement("td");
 
-  if (obj.league === "Sun Belt Conference (SBC)" || obj.league == "Western Conference" || obj.league == "Eastern Conference") {
+  if (obj.league === "Sun Belt Conference (SBC)") {
     const eastTeams = [];
     const westTeams = [];
     let currentDivision = null;
@@ -68,6 +68,56 @@ function createRow(obj) {
     eastHeader.textContent = "East Division:";
     const westHeader = document.createElement("strong");
     westHeader.textContent = "West Division:";
+
+    tdTeams.appendChild(eastHeader);
+    tdTeams.appendChild(buildTeamList(eastTeams));
+    tdTeams.appendChild(document.createElement("br"));
+    tdTeams.appendChild(westHeader);
+    tdTeams.appendChild(buildTeamList(westTeams));
+  } 
+  else if (obj.league === "Eastern Conference") {
+    const eastTeams = [];
+    const westTeams = [];
+    let currentDivision = null;
+
+    // Split teams into East and West based on markers
+    (Array.isArray(obj.teams) ? obj.teams : []).forEach(team => {
+      if (team.toLowerCase() === "atlantic") currentDivision = "atlantic";
+      else if (team.toLowerCase() === "metropolitan") currentDivision = "metropolitan";
+      else if (currentDivision === "atlantic") eastTeams.push(team);
+      else if (currentDivision === "metropolitan") westTeams.push(team);
+    });
+
+    // Create headers and build lists
+    const eastHeader = document.createElement("strong");
+    eastHeader.textContent = "Atlantic Division:";
+    const westHeader = document.createElement("strong");
+    westHeader.textContent = "Metropolitan Division:";
+
+    tdTeams.appendChild(eastHeader);
+    tdTeams.appendChild(buildTeamList(eastTeams));
+    tdTeams.appendChild(document.createElement("br"));
+    tdTeams.appendChild(westHeader);
+    tdTeams.appendChild(buildTeamList(westTeams));
+  } 
+  else if (obj.league === "Western Conference") {
+    const eastTeams = [];
+    const westTeams = [];
+    let currentDivision = null;
+
+    // Split teams into East and West based on markers
+    (Array.isArray(obj.teams) ? obj.teams : []).forEach(team => {
+      if (team.toLowerCase() === "central") currentDivision = "central";
+      else if (team.toLowerCase() === "pacific") currentDivision = "pacific";
+      else if (currentDivision === "central") eastTeams.push(team);
+      else if (currentDivision === "pacific") westTeams.push(team);
+    });
+
+    // Create headers and build lists
+    const eastHeader = document.createElement("strong");
+    eastHeader.textContent = "Central Division:";
+    const westHeader = document.createElement("strong");
+    westHeader.textContent = "Pacific Division:";
 
     tdTeams.appendChild(eastHeader);
     tdTeams.appendChild(buildTeamList(eastTeams));
