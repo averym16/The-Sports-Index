@@ -11,16 +11,32 @@
     if (!thead) return;
     thead.innerHTML = '';
     const tr = document.createElement('tr');
-    const headers = [
-      'Team',
-      'Founded',
-      'Championships',
-      'Overall Record',
-      'Record Last 10 Years',
-      'Owner',
-      'General Manager',
-      'Head Coach'
-    ];
+    const headers = [];
+
+    if (thead === "nfl"){
+      headers = [
+        'Team',
+        'Founded',
+        'Super Bowls',
+        'Overall Record',
+        'Record Last 10 Years',
+        'Owner',
+        'General Manager',
+        'Head Coach'
+      ];
+    }
+    else if (thead === "nhl"){
+      headers = [
+        'Team',
+        'Founded',
+        'Stanley Cups',
+        'Overall Record',
+        'Record Last 10 Years',
+        'Owner',
+        'General Manager',
+        'Head Coach'
+      ];
+    }
     for (const h of headers) {
       const th = document.createElement('th');
       th.textContent = h;
