@@ -23,7 +23,7 @@
     metaList.appendChild(leaderLi);
 
     const foundedLi = document.createElement("li");
-    foundedLi.textContent = `Founded: ${esc(obj.first_meeting || "")}`;
+    foundedLi.textContent = `First Meeting: ${esc(obj.first_meeting || "")}`;
     metaList.appendChild(foundedLi);
 
     const totalLi = document.createElement("li");
