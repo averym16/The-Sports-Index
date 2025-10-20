@@ -46,7 +46,21 @@
         <section id="nhl_teams">
             <h2>Teams</h2>
             <p>Stats about each team in the NHL. Overall Record is defined as Win - Loss- Overtime Losses</p>
-             <script src="../scripts/data_national_teams_script.js"></script>
+             <table class="team_table">
+                <tr class="team_headings">
+                    <th>Team</th>
+                    <th>Founded</th>
+                    <th>Stanley Cups</th>
+                    <th>Overall Record</th>
+                    <th>Record Last 10 Years</th>
+                    <th>Owner</th>
+                    <th>General Manager</th>
+                    <th>Head Coach</th>
+                </tr>
+                <tbody id="team_body">
+                </tbody>                    
+            </table>
+            <script src="../scripts/data_national_teams_script.js"></script>
         </section>
     </body>
     <footer id="footer">
