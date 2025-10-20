@@ -4,7 +4,9 @@
   const JSON_URL = '../data/teams.json'; // adjust if your path differs
   const TEAM_HEAD_ID = 'team_head';
   const TEAM_BODY_ID = 'team_body';
-
+  const title = document.querySelector("h1");
+  const FILTER_SPORT = title?.getAttribute("name");
+  
   // Build the requested header
   const ensureHeaders = () => {
     const thead = document.getElementById(TEAM_HEAD_ID);
@@ -69,7 +71,7 @@
     const arr = Array.isArray(data) ? data : (data ? [data] : []);
     for (const block of arr) {
       const sport = (block?.sport || '').toString().trim().toLowerCase();
-      if (sport !== 'nfl') continue;
+      if (sport !== FILTER_SPORT) continue;
       if (!Array.isArray(block.teams)) continue;
 
       for (const t of block.teams) {

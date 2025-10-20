@@ -87,7 +87,7 @@
     },
     {"sport": "nhl", "teams":[
         {"name": "Boston Bruins","founded": "1924","championships": "6: 1929, 1939, 1941, 1970, 1972, 2011","overall_record": "3440-2503-226","record_10years": "459-234-91","owner": "Delaware North","general_manager": "Don Sweeney", "head_coach": "Marco Sturm"},
-        {"name": "Buffalo Sabres","founded": "1970","championships": "0","overall_record": "4278-1956-198","record_10years": "321-369-91","owner": "Terry Pegula","general_manager": "Kevyn Adams", "head_coach": "Lindy Ruff"},
+        {"name": "Buffalo Sabres","founded": "1970","championships": "0","overall_record": "1956-1715-198","record_10years": "321-369-91","owner": "Terry Pegula","general_manager": "Kevyn Adams", "head_coach": "Lindy Ruff"},
         {"name": "Detroit Red Wings","founded": "1926","championships": "11: 1936, 1937, 1943, 1950, 1952, 1954, 1955, 1997, 1998, 2002, 2008","overall_record": "3140-2719-220","record_10years": "348-358-99","owner": "Ilitch Holdings, Inc.","general_manager": "Steve Yzerman", "head_coach": "Todd McLellan"},
         {"name": "Florida Panthers","founded": "1993","championships": "2: 2024, 2025","overall_record": "1091-979-232","record_10years": "433-269-79","owner": "Sunrise Sports & Entertainment","general_manager": "Bill Zito", "head_coach": "Paul Maurice"},
         {"name": "Montreal Canadiens","founded": "1909","championships": "24: 1916, 1924, 1930, 1931, 1944, 1946, 1953, 1956, 1957, 1958, 1959, 1960, 1965, 1966, 1968, 1969, 1971, 1973, 1976, 1977, 1978, 1979, 1986, 1993","overall_record": "3600-2465-219","record_10years": "334-348-100","owner": "Molson Family","general_manager": "Kent Hughes", "head_coach": "Martin St. Louis"},

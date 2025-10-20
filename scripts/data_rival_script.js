@@ -1,6 +1,6 @@
 (function () {
   const title = document.querySelector("h1");
-  const FILTER_SPORT = title?.getAttribute("name") || "college_hockey";
+  const FILTER_SPORT = title?.getAttribute("name");
   const RIVALRY_BODY_ID = "rivalry_body";
 
   function esc(s) {
