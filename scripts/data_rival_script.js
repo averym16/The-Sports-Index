@@ -53,9 +53,18 @@
 
   function init() {
     fetch("../data/rivalries.json")
-      .then(resp => resp.json())
-      .then(json => populateList(json))
-      .catch(() => populateList([]));
+    .then((resp) => {
+      if (!resp.ok) throw new Error("rivalries.json not found");
+      return resp.json();
+    })
+    .then((json) => populateTable(Array.isArray(json) ? json : []))
+    .catch(() => {
+      if (window.RIVALRIES_DATA && Array.isArray(window.RIVALRIES_DATA)) {
+        populateTable(window.RIVALRIES_DATA_DATA);
+      } else {
+        populateTable([]);
+      }
+    });
   }
 
   document.addEventListener("DOMContentLoaded", init);
