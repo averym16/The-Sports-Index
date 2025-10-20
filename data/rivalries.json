@@ -52,15 +52,15 @@
         {"rivalry": "", "leader": "", "overall_record": "", "first_meeting": "", "total_meetings": ""}
     ]},
     {"sport": "college_hockey", "rivalries": [
-        {"rivalry": "1. Minnesota vs. North Dakota", "leader": "Minnesota", "overall_record": "145-137-16", "first_meeting": "1947", "total_meetings": "298"},
-        {"rivalry": "2. Michigan vs Michigan State", "leader": "Michigan", "overall_record": "176-139-24", "first_meeting": "1922", "total_meetings": "339"},
-        {"rivalry": "3. Colorado College vs Denver (\"Battle of Gold Pan\")", "leader": "Denver", "overall_record": "196-122-21", "first_meeting": "1950", "total_meetings": "339"},
-        {"rivalry": "4. Boston University vs Boston College (\"Green Line Rivalry\")", "leader": "Boston University", "overall_record": "139-131-21", "first_meeting": "1918", "total_meetings": "291"},
-        {"rivalry": "5. Maine vs New Hampshire", "leader": "Maine", "overall_record": "71-57-12", "first_meeting": "1979", "total_meetings": "140"},
-        {"rivalry": "6. Air Force vs Army", "leader": "Air Force", "overall_record": "53-27-9", "first_meeting": "1976", "total_meetings": "89"},
-        {"rivalry": "7. Cornell vs Harvard", "leader": "Cornell", "overall_record": "79-70-13", "first_meeting": "1910", "total_meetings": "163"},
-        {"rivalry": "8. Quinnipiac vs Yale (\"Battle of Whitney Avenue\")", "leader": "Quinnipiac", "overall_record": "31-7-5", "first_meeting": "2006", "total_meetings": "43"},
-        {"rivalry": "9. Alaska Fairbanks vs Alaska Anchorage", "leader": "Alaska Anchorage", "overall_record": "91-77-13", "first_meeting": "1979", "total_meetings": "181"},
-        {"rivalry": "10. Michigan Tech vs Northern Michigan", "leader": "Michigan Tech", "overall_record": "82-79-4", "first_meeting": "1979", "total_meetings": "174"}
+        {"rivalry": "Minnesota vs. North Dakota", "leader": "Minnesota", "overall_record": "145-137-16", "first_meeting": "1947", "total_meetings": "298"},
+        {"rivalry": "Michigan vs Michigan State", "leader": "Michigan", "overall_record": "176-139-24", "first_meeting": "1922", "total_meetings": "339"},
+        {"rivalry": "Colorado College vs Denver (\"Battle of Gold Pan\")", "leader": "Denver", "overall_record": "196-122-21", "first_meeting": "1950", "total_meetings": "339"},
+        {"rivalry": "Boston University vs Boston College (\"Green Line Rivalry\")", "leader": "Boston University", "overall_record": "139-131-21", "first_meeting": "1918", "total_meetings": "291"},
+        {"rivalry": "Maine vs New Hampshire", "leader": "Maine", "overall_record": "71-57-12", "first_meeting": "1979", "total_meetings": "140"},
+        {"rivalry": "Air Force vs Army", "leader": "Air Force", "overall_record": "53-27-9", "first_meeting": "1976", "total_meetings": "89"},
+        {"rivalry": "Cornell vs Harvard", "leader": "Cornell", "overall_record": "79-70-13", "first_meeting": "1910", "total_meetings": "163"},
+        {"rivalry": "Quinnipiac vs Yale (\"Battle of Whitney Avenue\")", "leader": "Quinnipiac", "overall_record": "31-7-5", "first_meeting": "2006", "total_meetings": "43"},
+        {"rivalry": "Alaska Fairbanks vs Alaska Anchorage", "leader": "Alaska Anchorage", "overall_record": "91-77-13", "first_meeting": "1979", "total_meetings": "181"},
+        {"rivalry": "Michigan Tech vs Northern Michigan", "leader": "Michigan Tech", "overall_record": "82-79-4", "first_meeting": "1979", "total_meetings": "174"}
     ]}
 ]

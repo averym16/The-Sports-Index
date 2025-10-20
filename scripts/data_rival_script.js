@@ -3,22 +3,12 @@
   const FILTER_SPORT = title ? title.getAttribute("name") : "";
   const RIVALRY_BODY_ID = "rivalry_body";
 
-  function esc(str) {
-    if (str === null || str === undefined) return "";
-    return String(str)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#39;");
-  }
-
   function createListItem(obj) {
     const li = document.createElement("li");
 
     const titleDiv = document.createElement("div");
     titleDiv.className = "rivalry-title";
-    titleDiv.textContent = esc(obj.rivalry || "");
+    titleDiv.textContent = obj.rivalry || "";
     li.appendChild(titleDiv);
 
     const metaList = document.createElement("ul");
