@@ -7,19 +7,9 @@
         <script type ='text/javascript' src="../scripts/commen_elements.js"></script>
     </head>
     <body>
-         <nav>
-            <ul class="navbar">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="https://www.youtube.com/watch?v=b4Zp75xe6tE&t=11s" target="_blank">About</a></li>
-                <li><a href="#footer">Contact</a></li>
-                <li><a href="https://www.youtube.com/watch?v=V3R9y5v8GUY&t=0h0m11s" target="_blank">Donate</a></li>
-                <li><a href="#college_football_conferences">Conferences</a></li>
-                <li><a href="#college_football_rivalries">Rivalries</a></li>
-            </ul>
-            
-        </nav>
+         <nav id="navbar"></nav>
         <header>
-            <h1 name="college_football">College Football</h1>
+            <h1 name="college_football" id="football">College Football</h1>
         </header>
         <ul class = "breadcrumb">
             <li><a href="../index.html">Home</a></li>
@@ -28,7 +18,7 @@
         </ul>
         <details>The Sports Index isn't liable for any legal issues involved with streaming. 
             Additonally, using a vpn is illegal.</details>
-        <section class="conferences" id="college_football_conferences">
+        <section id="conferences">
             <h2>Conferences</h2>
             <p>All National College Athletic Association (NCAA) Division 1 (D1) football conferences.</p>
             <table class="league_table">
@@ -45,13 +35,11 @@
             <script  src="../scripts/data_league_script.js"></script>
             
         </section>
-        <section id="college_football_rivalries">
+        <section id="rivalries">
             <h2>Top 50 Rivalries in FBS 1</h2>
             <ol id="rivalry_body"></ol>
             <script  src="../scripts/data_rival_script.js"></script>
         </section>
     </body>
-   <footer id="footer">
-        <div id="footer-info"></div>
-    </footer>
+   <footer id="footer"></footer>
 </html>

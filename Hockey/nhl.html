@@ -7,19 +7,9 @@
         <script type ='text/javascript' src="../scripts/commen_elements.js"></script>
     </head>
     <body>
-         <nav>
-            <ul class="navbar">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="https://www.youtube.com/watch?v=b4Zp75xe6tE&t=11s" target="_blank">About</a></li>
-                <li><a href="#footer">Contact</a></li>
-                <li><a href="https://www.youtube.com/watch?v=V3R9y5v8GUY&t=0h0m11s" target="_blank">Donate</a></li>
-                <li><a href="#nhl_conferences">Conferences</a></li>
-                <li><a href="#nhl_teams">Teams</a></li>
-            </ul>
-            
-        </nav>
+        <nav id="navbar"></nav>
         <header>
-            <h1 name="nhl">National Hockey League (NHL)</h1>
+            <h1 name="nhl" id="hockey">National Hockey League (NHL)</h1>
         </header>
         <ul class = "breadcrumb">
             <li><a href="../index.html">Home</a></li>
@@ -28,7 +18,7 @@
         </ul>
         <details>The Sports Index isn't liable for any legal issues involved with streaming. 
             Additonally, using a vpn is illegal.</details>
-        <section class="conferences" id="nhl_conferences">
+        <section  id="conferences">
             <h2>Conferences</h2>
             <p>All NHL Conferences.</p>
             <table class="league_table">
@@ -45,7 +35,7 @@
             <script  src="../scripts/data_league_script.js"></script>
             
         </section>
-        <section id="nhl_teams">
+        <section id="teams">
             <h2>Teams</h2>
             <p>Stats about each team in the NHL. Overall Record is defined as Win - Loss- Overtime Losses</p>
              <table class="team_table">
@@ -65,7 +55,5 @@
             <script src="../scripts/data_national_teams_script.js"></script>
         </section>
     </body>
-    <footer id="footer">
-        <div id="footer-info"></div>
-    </footer>
+    <footer id="footer"></footer>
 </html>

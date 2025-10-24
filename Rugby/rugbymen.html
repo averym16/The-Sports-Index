@@ -7,20 +7,9 @@
         <script type ='text/javascript' src="../scripts/commen_elements.js"></script>
     </head>
     <body>
-         <nav>
-            <ul class="navbar">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="https://www.youtube.com/watch?v=b4Zp75xe6tE&t=11s" target="_blank">About</a></li>
-                <li><a href="#footer">Contact</a></li>
-                <li><a href="https://www.youtube.com/watch?v=V3R9y5v8GUY&t=0h0m11s" target="_blank">Donate</a></li>
-                <li><a href="#men_rugby_league">Leagues</a></li>
-                <li><a href="#mens_rugby_tournament">Tournaments</a></li>
-                <li><a href="#mens_rugby_teams">Teams</a></li>
-            </ul>
-            
-        </nav>
+         <nav id="navbar"></nav>
         <header>
-            <h1 name="men_rugby">Men's Rugby</h1>
+            <h1 name="men_rugby" id="rugby">Men's Rugby</h1>
         </header>
         <ul class = "breadcrumb">
             <li><a href="../index.html">Home</a></li>
@@ -29,28 +18,27 @@
         </ul>
         <details>The Sports Index isn't liable for any legal issues involved with streaming. 
             Additonally, using a vpn is illegal.</details>
-        <section class="leagues" id="men_rugby_league">
+        <section id="leagues">
             <h2>Leagues</h2>
             <details>The best-of-the-best players from these leagues, get selected by their national teams to play.</details>
-            <section class="leagues">
-                <h3>T1 Leagues</h3>
-                <p>Table includes all T1 Leagues along with Major League Rugby.</p>
-                <table class="league_table">
-                    <tr class="headings">
-                        <th>League</th>
-                        <th>Description</th>
-                        <th>Season</th>
-                        <th>Teams</th>
-                        <th>Schedule</th>
-                        <th>Watch</th>
-                    </tr>
-                    <tbody id="league_body">
-                    </tbody>
-                </table>
-                <script src="../scripts/data_league_script.js"></script>
-            </section>
+               
+            <p>Table includes all T1 Leagues along with Major League Rugby.</p>
+            <table class="league_table">
+                <tr class="headings">
+                    <th>League</th>
+                    <th>Description</th>
+                    <th>Season</th>
+                    <th>Teams</th>
+                    <th>Schedule</th>
+                    <th>Watch</th>
+                </tr>
+                <tbody id="league_body">
+                </tbody>
+            </table>
+            <script src="../scripts/data_league_script.js"></script>
+            
         </section>
-        <section class="tournaments" id="men_rugby_tournament">
+        <section id="tournaments">
             <h2>Tournaments</h2>
             <table class="tournament_table">
                 <tr class="tournament_headings">
@@ -64,7 +52,7 @@
             </table>
             <script src="../scripts/data_tournaments_script.js"></script>
         </section>
-        <section class="Rugby_Teams" id="mens_rugby_teams">
+        <section id="teams">
             <h2>Teams</h2>
             <p>Click on any of the teams below to be taken to their website.</p>
             <table class="team_table">
@@ -84,7 +72,5 @@
             <p>Next Tour: 2025</p>
         </section>
     </body>
-    <footer id="footer">
-        <div id="footer-info"></div>
-    </footer>
+    <footer id="footer"></footer>
 </html>

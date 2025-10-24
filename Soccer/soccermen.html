@@ -7,19 +7,9 @@
         <script type ='text/javascript' src="../scripts/commen_elements.js"></script>
     </head>
     <body>
-         <nav>
-            <ul class="navbar">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="https://www.youtube.com/watch?v=b4Zp75xe6tE&t=11s" target="_blank">About</a></li>
-                <li><a href="#footer">Contact</a></li>
-                <li><a href="https://www.youtube.com/watch?v=V3R9y5v8GUY&t=0h0m11s" target="_blank">Donate</a></li>
-                <li><a href="#men_soccer_league">Leagues</a></li>
-                <li><a href="#mens_soccer_tournament">Tournaments</a></li>
-            </ul>
-            
-        </nav>
+        <nav id="navbar"></nav>
         <header>
-            <h1 name="men_soccer">Men's Soccer</h1>
+            <h1 name="men_soccer" id="soccer">Men's Soccer</h1>
         </header>
         <ul class = "breadcrumb">
             <li><a href="../index.html">Home</a></li>
@@ -28,7 +18,7 @@
         </ul>
         <details>The Sports Index isn't liable for any legal issues involved with streaming. 
             Additonally, using a vpn is illegal.</details>
-        <section class="leagues" id="men_soccer_league">
+        <section id="leagues">
             <h2>Leagues</h2>
             <p>Top 10 club leagues in the world, along with the Champions League</p>
             <table class="league_table">
@@ -45,7 +35,7 @@
             <script  src="../scripts/data_league_script.js"></script>
             
         </section>
-        <section class="tournaments" id="mens_soccer_tournament">
+        <section id="tournaments">
             <h2>Tournaments</h2>
            <table class="tournament_table">
                     <tr class="tournament_headings">
@@ -60,7 +50,5 @@
                 <script src="../scripts/data_tournaments_script.js"></script>
         </section>
     </body>
-    <footer id="footer">
-        <div id="footer-info"></div>
-    </footer>
+    <footer id="footer"></footer>
 </html>

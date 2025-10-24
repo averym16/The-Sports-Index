@@ -7,19 +7,9 @@
         <script type ='text/javascript' src="../scripts/commen_elements.js"></script>
     </head>
     <body>
-         <nav>
-            <ul class="navbar">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="https://www.youtube.com/watch?v=b4Zp75xe6tE&t=11s" target="_blank">About</a></li>
-                <li><a href="#footer">Contact</a></li>
-                <li><a href="https://www.youtube.com/watch?v=V3R9y5v8GUY&t=0h0m11s" target="_blank">Donate</a></li>
-                <li><a href="#nfl_divisions">Divisions</a></li>
-                <li><a href="#nfl_teams">Teams</a></li>
-            </ul>
-            
-        </nav>
+         <nav id="navbar"></nav>
         <header>
-            <h1 name="nfl">National Football League (NFL)</h1>
+            <h1 name="nfl" id="football">National Football League (NFL)</h1>
         </header>
         <ul class = "breadcrumb">
             <li><a href="../index.html">Home</a></li>
@@ -28,7 +18,7 @@
         </ul>
         <details>The Sports Index isn't liable for any legal issues involved with streaming. 
             Additonally, using a vpn is illegal.</details>
-        <section class="divisions" id="nfl_divisions">
+        <section id="conferences">
             <h2>Conferences</h2>
             <p>The NFL is split into 2 conferences the American Football League (AFC) and the National Football League (NFC). Being
                 in one conference doesn't mean teams in the other conference don't play each other, just not as much based on a rotating schedule.
@@ -52,7 +42,7 @@
             <script  src="../scripts/data_league_script.js"></script>
             
         </section>
-        <section id="nfl_teams">
+        <section id="teams">
            <h2>Teams</h2>
             <p>Stats on every team currently active in the NFL.</p>
             <table class="team_table">
@@ -72,7 +62,5 @@
             <script src="../scripts/data_national_teams_script.js"></script>
         </section>
     </body>
-    <footer id="footer">
-        <div id="footer-info"></div>
-    </footer>
+    <footer id="footer"></footer>
 </html>
