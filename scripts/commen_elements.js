@@ -18,14 +18,21 @@ $(document).ready(function() {
     //Create leagues table
         $('#leagues').append("<h2>Leagues</h2><p>Top 10 club leagues in the world, along with the Champions League.</p>");
         $('#leagues').append('<table id = "league_table"><tr id = "league_headings"><th id="header1">Leagues</th><th>Description</th><th>Season</th><th>Schedule</th><th>Watch</th></tr><tbody id="league_body"></tbody></table>');
+    
     //Create tournament table
         $('#tournaments').append("<h2>Tournaments</h2>");
         $('#tournaments').append('<table id = "tournament_table"><tr id = "tournament_headings"><th>Tournament</th><th>Description</th><th>When</th><th>Watch</th></tr><tbody id="tournament_body"></tbody></table>');
+    
     //Create teams table
         $('#teams').append("<h2>Teams</h2><p>Stats on every T1 and T2 teams.</p>");
         $('#teams').append('<table id = "team_table"><tr id = "team_headings"><th>Team</th><th>Founded</th><th id="championships">Championships</th><th id="header4">Rank</th><th id="header5">Rank Change (Last 10 Years)</th></tr><tbody id="team_body"></tbody></table>');
+    
     //Create rivalry list
         $('#rivalries').append('<h2>Top 50 Rivalries in FBS 1</h2><ol id="rivalry_body"></ol>');
+    
+    //Create breadbox
+        $('#breadcrumb').append(`<li id="bread_home"><a href="../index.html">Home</a></li><li id="bread_sport"><a href="#${FILTER_SPORT}.html">${sport_names[FILTER_SPORT]}</a></li>`);
+
     //Create head
     
         if (!document.querySelector('meta[charset]')) {
@@ -79,6 +86,7 @@ $(document).ready(function() {
         }
 });
 
+//Add elements after page has fully loaded
 $(window).on("load", function(){ 
     const title = document.querySelector("h1");
     const FILTER_SPORT_OPTION = title?.getAttribute("name");
@@ -108,6 +116,13 @@ $(window).on("load", function(){
             if ( FILTER_SPORT_OPTION != 'soccer' && FILTER_SPORT_OPTION != 'rugby' 
                 && FILTER_SPORT_OPTION != 'football' && FILTER_SPORT_OPTION != 'hockey') {
                 
+                //Update breadbox
+                $('#breadcrumb').append(`<li><a href="#${FILTER_SPORT_OPTION}.html">${sport_names[FILTER_SPORT_OPTION]}</a></li>`);
+                $('#breadcrumb #bread_sport a').attr("href", `${FILTER_SPORT}.html`);
+                
+                //Add Legal Details
+                $('#breadcrumb').after("<details>The Sports Index isn't liable for any legal issues involved with streaming. Additonally, using a vpn is illegal.</details>");
+
                 if(FILTER_SPORT === 'rugby'){
                     $('#leagues p').html("Table includes all T1 Leagues along with Major League Rugby.");
                     $('#leagues').append('<details>The best-of-the-best players from these leagues, get selected by their national teams to play.</details>');
