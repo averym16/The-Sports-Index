@@ -44,7 +44,7 @@ $(document).ready(function() {
         $('#rivalries').append('<h2>Top 50 Rivalries in FBS 1</h2><ol id="rivalry_body"></ol>');
     
     //Create breadcrumb
-        $('#breadcrumb').append(`<li id="bread_home"><a href="../index.html">Home</a></li><li id="bread_sport"><a href="#${FILTER_SPORT}.html">${sport_name[FILTER_SPORT]}</a></li>`);
+        $('#breadcrumb').append(`<li id="bread_home"><a href="../index.html">Home</a></li><li id="bread_sport"><a href="#${FILTER_SPORT}">${sport_name[FILTER_SPORT]}</a></li>`);
 
     //Create head
     
@@ -132,7 +132,7 @@ $(window).on("load", function(){
                 
                 //Update breadbox
                 $('#breadcrumb').append(`<li><a href="#${FILTER_SPORT_OPTION}">${sport_name[FILTER_SPORT_OPTION]}</a></li>`);
-                $('#breadcrumb #bread_sport a').attr("href", `${FILTER_SPORT}.html`);
+                $('#breadcrumb #bread_sport a').attr("href", `sport.html?sport=${FILTER_SPORT}&option=${FILTER_SPORT}`);
                 
                 //Add Legal Details
                 $('#breadcrumb').after("<details>The Sports Index isn't liable for any legal issues involved with streaming. Additonally, using a vpn is illegal.</details>");
