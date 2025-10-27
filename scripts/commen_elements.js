@@ -1,12 +1,25 @@
 const now = new Date();
-const sport_names = {"men_rugby": "Men's Rugby", "women_rugby": "Women's Rugby", "men_soccer": "Men's Soccer", "women_soccer": "Women's Soccer",
+const sport_name = {"men_rugby": "Men's Rugby", "women_rugby": "Women's Rugby", "men_soccer": "Men's Soccer", "women_soccer": "Women's Soccer",
     "nfl": "NFL", "nhl": "NHL", "college_hockey": "NCAA D1 Men's Hockey", "college_football": "NCAA FBS 1 Football", "hockey": "Hockey", "rugby": "Rugby",
     "soccer": "Soccer", "football": "Football", "home": "Home"};
 
+function buildTeamsSection() {
+  if (!$('#teams').length) return;
+  $('#teams').append("<h2>Teams</h2><p>Stats on every T1 and T2 teams.</p>");
+  $('#teams').append(
+    '<table id="team_table">' +
+      '<tr id="team_headings">' +
+      '<th>Team</th><th>Founded</th><th id="championships">Championships</th>' +
+      '<th id="header4">Rank</th><th id="header5">Rank Change (Last 10 Years)</th>' +
+      '</tr><tbody id="team_body"></tbody></table>'
+  );
+}
+
+
 $(document).ready(function() {
-    const title = document.querySelector("h1");
-    const FILTER_SPORT_OPTION = title?.getAttribute("name");
-    const FILTER_SPORT = title?.getAttribute("id");
+    const params = new URLSearchParams(window.location.search);
+    const FILTER_SPORT = params.get('sport');
+    const FILTER_SPORT_OPTION = params.get('option');
 
     //Create Footer Element
         $("#footer").html('<section id="contact_info"><h3>Contact Us</h3><p>Email: <a href="https://www.youtube.com/watch?v=xeSpzHqQT2w&t=0h0m46s" target="_blank">averymorrison26@gmail.com</a></p><p>Github:<a href="https://github.com/averym16" target="_blank">averym16</a></p></section>');
@@ -17,7 +30,7 @@ $(document).ready(function() {
 
     //Create leagues table
         $('#leagues').append("<h2>Leagues</h2><p>Top 10 club leagues in the world, along with the Champions League.</p>");
-        $('#leagues').append('<table id = "league_table"><tr id = "league_headings"><th id="header1">Leagues</th><th>Description</th><th>Season</th><th>Schedule</th><th>Watch</th></tr><tbody id="league_body"></tbody></table>');
+        $('#leagues').append('<table id = "league_table"><tr id = "league_headings"><th id="header1">Leagues</th><th>Description</th><th>Season</th><th>Teams</th><th>Schedule</th><th>Watch</th></tr><tbody id="league_body"></tbody></table>');
     
     //Create tournament table
         $('#tournaments').append("<h2>Tournaments</h2>");
@@ -26,12 +39,12 @@ $(document).ready(function() {
     //Create teams table
         $('#teams').append("<h2>Teams</h2><p>Stats on every T1 and T2 teams.</p>");
         $('#teams').append('<table id = "team_table"><tr id = "team_headings"><th>Team</th><th>Founded</th><th id="championships">Championships</th><th id="header4">Rank</th><th id="header5">Rank Change (Last 10 Years)</th></tr><tbody id="team_body"></tbody></table>');
-    
+
     //Create rivalry list
         $('#rivalries').append('<h2>Top 50 Rivalries in FBS 1</h2><ol id="rivalry_body"></ol>');
     
-    //Create breadbox
-        $('#breadcrumb').append(`<li id="bread_home"><a href="../index.html">Home</a></li><li id="bread_sport"><a href="#${FILTER_SPORT}.html">${sport_names[FILTER_SPORT]}</a></li>`);
+    //Create breadcrumb
+        $('#breadcrumb').append(`<li id="bread_home"><a href="../index.html">Home</a></li><li id="bread_sport"><a href="#${FILTER_SPORT}.html">${sport_name[FILTER_SPORT]}</a></li>`);
 
     //Create head
     
@@ -44,10 +57,10 @@ $(document).ready(function() {
         // Add title if missing
         if (!document.querySelector('title')) {
             const titleEl = document.createElement('title');
-            titleEl.textContent = `The Sports Index | ${sport_names[FILTER_SPORT_OPTION] || ''}`;
+            titleEl.textContent = `The Sports Index | ${sport_name[FILTER_SPORT_OPTION] || ''}`;
             document.head.appendChild(titleEl);
         } else {
-        document.title = `The Sports Index | ${sport_names[FILTER_SPORT_OPTION] || ''}`;
+        document.title = `The Sports Index | ${sport_name[FILTER_SPORT_OPTION] || ''}`;
         }
         // Styles
         const link1 = document.createElement('link');
@@ -84,13 +97,14 @@ $(document).ready(function() {
             document.body.appendChild(s); 
             });
         }
+    
 });
 
 //Add elements after page has fully loaded
 $(window).on("load", function(){ 
-    const title = document.querySelector("h1");
-    const FILTER_SPORT_OPTION = title?.getAttribute("name");
-    const FILTER_SPORT = title?.getAttribute("id");
+    const params = new URLSearchParams(window.location.search);
+    const FILTER_SPORT = params.get('sport');
+    const FILTER_SPORT_OPTION = params.get('option');
     
     //Add Specific Elements Based on Page
 
@@ -117,7 +131,7 @@ $(window).on("load", function(){
                 && FILTER_SPORT_OPTION != 'football' && FILTER_SPORT_OPTION != 'hockey') {
                 
                 //Update breadbox
-                $('#breadcrumb').append(`<li><a href="#${FILTER_SPORT_OPTION}.html">${sport_names[FILTER_SPORT_OPTION]}</a></li>`);
+                $('#breadcrumb').append(`<li><a href="#${FILTER_SPORT_OPTION}">${sport_name[FILTER_SPORT_OPTION]}</a></li>`);
                 $('#breadcrumb #bread_sport a').attr("href", `${FILTER_SPORT}.html`);
                 
                 //Add Legal Details
@@ -177,4 +191,4 @@ $(window).on("load", function(){
                     }
             }
         }
-    });
+});

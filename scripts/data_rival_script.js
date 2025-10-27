@@ -1,6 +1,6 @@
 (function () {
-  const title = document.querySelector("h1");
-  const FILTER_SPORT = title?.getAttribute("name");
+  const params = new URLSearchParams(window.location.search);
+  const FILTER_SPORT =  params.get('option');
   const RIVALRY_BODY_ID = "rivalry_body";
 
   function esc(s) {

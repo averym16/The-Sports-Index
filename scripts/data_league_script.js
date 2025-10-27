@@ -2,9 +2,9 @@
 
 // CONFIG: filter criteria
 (function () {
-title = document.querySelector("h1");
-const FILTER_LEAGUE = title.getAttribute('name');
-const LEAGUE_BODY_ID = "league_body";
+  const params = new URLSearchParams(window.location.search);
+  const FILTER_LEAGUE =  params.get('option');
+  const LEAGUE_BODY_ID = "league_body";
 
 function esc(str) {
   if (str === null || str === undefined) return "";

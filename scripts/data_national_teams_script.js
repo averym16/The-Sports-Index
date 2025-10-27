@@ -4,8 +4,8 @@
   const JSON_URL = '../data/teams.json'; // adjust if your path differs
   const TEAM_HEAD_ID = 'team_head';
   const TEAM_BODY_ID = 'team_body';
-  const title = document.querySelector("h1");
-  const FILTER_SPORT = title?.getAttribute("name");
+  const params = new URLSearchParams(window.location.search);
+  const FILTER_SPORT =  params.get('option');
   
   // Build the requested header
   const ensureHeaders = () => {

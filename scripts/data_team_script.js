@@ -8,8 +8,8 @@
     (s || '').toString().trim().toLowerCase().replace(/\s+/g, '_');
 
   const getFilterSport = () => {
-    const h1 = document.querySelector('h1');
-    const nameAttr = h1 ? h1.getAttribute('name') : '';
+    const params = new URLSearchParams(window.location.search);
+    const  nameAttr =  params.get('option');
     return normalizeSport(nameAttr || '');
   };
 

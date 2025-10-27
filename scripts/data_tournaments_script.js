@@ -1,6 +1,6 @@
 (function () {
-title = document.querySelector("h1");
-const FILTER_TOURNAMENT = title.getAttribute('name');
+const params = new URLSearchParams(window.location.search);
+  const FILTER_TOURNAMENT =  params.get('option');
 const TOURNAMENT_BODY_ID = "tournament_body";
 
 function esc(str) {
