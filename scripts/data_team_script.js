@@ -1,3 +1,4 @@
+/* As uploaded — minimal safety tweak on DOMContentLoaded branch */
 (function () {
   'use strict';
 
@@ -63,7 +64,7 @@
     return td;
   };
 
-  // Row = [Name, Founded, Championships, Current Rank]
+  // Row = [Name, Founded, Championships, Current Rank, Rank Δ 10y]
   const createRow = (team) => {
     const tr = document.createElement('tr');
     tr.appendChild(createCell(team.name || ''));
@@ -74,10 +75,7 @@
     return tr;
   };
 
-  // Partially sort:
-  // - If current_rank is numeric: sort ascending among those rows
-  // - Else if overall_score is numeric: sort descending among those rows
-  // - If neither: do not move the row (keep original position)
+  // Partial sort rules as uploaded
   const sortTeamsPartial = (teams) => {
     const keyed = [];
     const keyedIndexSet = new Set();
@@ -99,7 +97,6 @@
       }
     });
 
-    // rank items first (asc), then score items (desc), stable by original index
     keyed.sort((a, b) => {
       if (a.type !== b.type) return a.type === 'rank' ? -1 : 1;
       if (a.type === 'rank') {
@@ -123,13 +120,12 @@
   const populateTable = (teams) => {
     const body = document.getElementById(TEAM_BODY_ID);
     if (!body) return;
-
     body.innerHTML = '';
 
     if (!teams || teams.length === 0) {
       const tr = document.createElement('tr');
       const td = document.createElement('td');
-      td.colSpan = 5; // matches 4 columns created above
+      td.colSpan = 5;
       td.textContent = 'No teams found for filter.';
       tr.appendChild(td);
       body.appendChild(tr);
@@ -137,14 +133,11 @@
     }
 
     const sorted = sortTeamsPartial(teams);
-
-    for (const team of sorted) {
-      body.appendChild(createRow(team));
-    }
+    for (const team of sorted) body.appendChild(createRow(team));
   };
 
   const init = async () => {
-    const filterSport = getFilterSport(); // expects values like "men_rugby" or "women_rugby"
+    const filterSport = getFilterSport();
     try {
       const resp = await fetch(JSON_URL);
       if (!resp.ok) throw new Error('teams.json not found');
@@ -162,8 +155,8 @@
   };
 
   if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init);
-} else {
-  init(); // DOM already loaded
-}
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();

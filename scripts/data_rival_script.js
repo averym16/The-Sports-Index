@@ -1,3 +1,4 @@
+/* As uploaded — no functional changes needed */ 
 (function () {
   const params = new URLSearchParams(window.location.search);
   const FILTER_SPORT =  params.get('option');
@@ -70,8 +71,8 @@
   }
 
   if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init);
-} else {
-  init(); // DOM already loaded
-}
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
