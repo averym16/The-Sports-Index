@@ -1,0 +1,121 @@
+/* Navbar */
+#navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* space between title and links */
+    align-items: center; /* vertically center everything */
+    position: fixed; /* behaves like a real navbar that stays at the top */
+    top: 0;
+    left: 0;
+    padding: 2% 2% 2% 1%; /* horizontal padding for space */
+    font-size: 20px;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    background-color: #E55636;
+    box-sizing: border-box;
+    z-index: 1000; /* keeps it above other content */
+}
+
+#page_title {
+    margin: 0;
+    color: black;
+    text-decoration: none;
+    justify-content: center;
+}
+
+#navbar .navbar_list {
+    display: flex;
+    flex-direction: row;
+    gap: 40px; 
+    margin: 0;
+    padding: 0;
+}
+
+.navbar_list li {
+    list-style-type: none;
+}
+
+.navbar_list li a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.navbar_list li a:hover {
+    text-decoration: underline;
+    color: #FFFDF0;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFDF0;
+}
+main{
+    flex: 1;                /* allows main content to fill page height */
+    width: 100%;
+    padding-top: 80px;      /* space for fixed navbar (adjust if navbar taller) */
+    box-sizing: border-box;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: #f4f4f4;
+  border-top: 1px solid #ccc;
+  margin-top: auto;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* allows wrapping on very narrow screens */
+}
+
+/* Left side: Contact Info + List inline */
+#contact_info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#contact_info h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+#contact_list {
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#contact_list li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Right side: Sources, License, Last Updated inline */
+#footer_misc {
+  display: flex;
+  align-items: center;
+}
+
+#footer_misc_list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer_misc_list li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

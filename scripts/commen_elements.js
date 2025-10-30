@@ -32,13 +32,6 @@ function isBaseSportPage({ sport, option }) {
 }
 
 function ensureHead({ sport, option }) {
-  // <meta charset>
-  if (!document.querySelector('meta[charset]')) {
-    const meta = document.createElement("meta");
-    meta.setAttribute("charset", "UTF-8");
-    document.head.prepend(meta);
-  }
-
   // <title>
   const pageTitle = `The Sports Index | ${titleFor(sport, option)}`;
   if (!document.querySelector("title")) {
@@ -48,45 +41,25 @@ function ensureHead({ sport, option }) {
   } else {
     document.title = pageTitle;
   }
-
-  // styles
-  const linkCommon = document.createElement("link");
-  linkCommon.rel = "stylesheet";
-  linkCommon.href = isBaseSportPage({ sport, option }) ? "styles/common.css" : "../styles/common.css";
-  linkCommon.type = "text/css";
-  linkCommon.media = "screen";
-  linkCommon.id = "head_link1";
-
-  const linkPage = document.createElement("link");
-  linkPage.rel = "stylesheet";
-  linkPage.href = isBaseSportPage({ sport, option })
-    ? "styles/index.css"
-    : "../styles/sports.css";
-  linkPage.type = "text/css";
-  linkPage.media = "screen";
-  linkPage.id = "head_link2";
-
-  // Replace or append
-  const prev1 = document.getElementById("head_link1");
-  const prev2 = document.getElementById("head_link2");
-  if (prev1) prev1.remove();
-  if (prev2) prev2.remove();
-  document.head.append(linkCommon, linkPage);
 }
 
 function ensureFooter() {
   const footer = qs("#footer");
   if (!footer) return;
   footer.innerHTML = `
-    <section id="contact_info">
-      <h3>Contact Us</h3>
-      <p>Email: <a href="mailto:averymorrison26@gmail.com" target="_blank">averymorrison26@gmail.com</a></p>
-      <p>Github: <a href="https://github.com/averym16" target="_blank">averym16</a></p>
+     <section id="contact_info">
+      <h3>Contact Us:</h3>
+      <ul id="contact_list">
+        <li>Email: <a href="mailto:averymorrison26@gmail.com" target="_blank">averymorrison26@gmail.com</a></li>
+        <li>Github: <a href="https://github.com/averym16" target="_blank">averym16</a></li>
+      </ul>
     </section>
-    <section id="footer-misc">
-      <p><a href="../CREDITS.txt">Sources</a></p>
-      <p>Last Updated: 10/27/2025</p>
-      <p>Licensed by <a href="../LICENSE.txt">MIT</a></p>
+    <section id="footer_misc">
+      <ul id="footer_misc_list">
+        <li><a href="../CREDITS.txt">Sources</a></li>
+        <li>Last Updated: 10/27/2025</li>
+        <li>Licensed by <a href="../LICENSE.txt">MIT</a></li>
+      </ul>
     </section>
   `;
 }
@@ -95,6 +68,7 @@ function ensureNavbar(isBase) {
   const nav = qs("#navbar");
   if (!nav) return;
   nav.innerHTML = `
+    <p id="page_title">The Sport Index</p>
     <ul class="navbar_list">
       <li id="home"><a href="#navbar">Home</a></li>
       <li><a href="https://www.youtube.com/watch?v=b4Zp75xe6tE&t=11s" target="_blank">About</a></li>
