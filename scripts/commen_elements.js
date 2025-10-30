@@ -88,7 +88,7 @@ function ensureScaffolding() {
   if (leagues && !qs("#league_table")) {
     leagues.insertAdjacentHTML(
       "beforeend",
-      `<h2>Leagues</h2><p>Top 10 club leagues in the world, along with the Champions League.</p>
+      `<h3>Leagues</h3><p>Top 10 club leagues in the world, along with the Champions League.</p>
        <table id="league_table">
          <thead><tr id="league_headings">
            <th id="header1">Leagues</th><th>Description</th><th>Season</th><th>Teams</th><th>Schedule</th><th>Watch</th>
@@ -102,7 +102,7 @@ function ensureScaffolding() {
   if (tournaments && !qs("#tournament_table")) {
     tournaments.insertAdjacentHTML(
       "beforeend",
-      `<h2>Tournaments</h2>
+      `<h3>Tournaments</h3>
        <table id="tournament_table">
          <thead><tr id="tournament_headings">
            <th>Tournament</th><th>Description</th><th>When</th><th>Watch</th>
@@ -116,7 +116,7 @@ function ensureScaffolding() {
   if (teams && !qs("#team_table")) {
     teams.insertAdjacentHTML(
       "beforeend",
-      `<h2>Teams</h2><p>Stats on every T1 and T2 teams.</p>
+      `<h3>Teams</h3><p>Stats on every T1 and T2 teams.</p>
        <table id="team_table">
          <thead><tr id="team_headings">
            <th>Team</th><th>Founded</th><th id="header4">Championships</th><th id="header5">Rank</th><th>Rank Change (Last 10 Years)</th>
@@ -128,7 +128,7 @@ function ensureScaffolding() {
   // rivalries ordered list
   const rival = qs("#rivalries");
   if (rival && !qs("#rivalry_body")) {
-    rival.insertAdjacentHTML("beforeend", `<h2>Top 50 Rivalries in FBS 1</h2><ol id="rivalry_body"></ol>`);
+    rival.insertAdjacentHTML("beforeend", `<h3>Top 50 Rivalries in FBS 1</h3><ol id="rivalry_body"></ol>`);
   }
 }
 
@@ -235,7 +235,7 @@ function applyPerSportTweaks({ sport, option }) {
     // Navbar extras
     const nav = qs(".navbar_list");
     if (nav) {
-      nav.insertAdjacentHTML("beforeend", `<li id="option1"><a href="${(sport === "football" || sport === "hockey") ? "#conferences" : "#leagues"}">${(sport === "football" || sport === "hockey") ? "Conferences" : "Leagues"}</a></li>`);
+      nav.insertAdjacentHTML("beforeend", `<li id="option1"><a href="#leagues">${(sport === "football" || sport === "hockey") ? "Conferences" : "Leagues"}</a></li>`);
       nav.insertAdjacentHTML("beforeend", `<li id="option2"><a href="${(option === "nfl" || option === "nhl") ? "#teams" : (option === "college_hockey" || option === "college_football") ? "#rivalries" : "#tournaments"}">${(option === "nfl" || option === "nhl") ? "Teams" : (option === "college_hockey" || option === "college_football") ? "Rivalries" : "Tournaments"}</a></li>`);
       if (sport === "rugby") {
         nav.insertAdjacentHTML("beforeend", `<li id="option3"><a href="#teams">Teams</a></li>`);
@@ -244,10 +244,10 @@ function applyPerSportTweaks({ sport, option }) {
 
     // Football/Hockey headings adjustments
     if (sport === "football" || sport === "hockey") {
-      const leaguesH2 = qs("#leagues h2");
-      if (leaguesH2) leaguesH2.textContent = "Conferences";
+      const leaguesH3 = qs("#leagues h3");
+      if (leaguesH3) leaguesH3.textContent = "Conferences";
       const header1 = qs("#league_headings #header1");
-      if (header1) header1.textContent = sport === "football" ? "Division/Conference" : "Conference";
+      if (header1) header1.textContent = option === "nfl" ? "Division" : "Conference";
 
       const h4 = qs("#team_headings #header4");
       const h5 = qs("#team_headings #header5");
@@ -288,7 +288,7 @@ function applyPerSportTweaks({ sport, option }) {
         if (teamsP) teamsP.textContent = "Overall Record is defined as Wins – Losses – Overtime Losses.";
       } else if (option === "college_hockey") {
         if (leaguesP) leaguesP.textContent = "All NCAA Division I Men's hockey conferences.";
-        const rivalH2 = qs("#rivalries h2"); if (rivalH2) rivalH2.textContent = "Top 10 NCAA Men's Hockey Rivalries";
+        const rivalH3 = qs("#rivalries h3"); if (rivalH3) rivalH3.textContent = "Top 10 NCAA Men's Hockey Rivalries";
       } else if (option === "college_football") {
         if (leaguesP) leaguesP.textContent = "All NCAA Division I FBS football conferences.";
       }

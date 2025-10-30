@@ -9,7 +9,6 @@
     left: 0;
     padding: 2% 2% 2% 1%; /* horizontal padding for space */
     font-size: 20px;
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
     background-color: #E55636;
     box-sizing: border-box;
     z-index: 1000; /* keeps it above other content */
@@ -54,12 +53,17 @@ html, body {
     display: flex;
     flex-direction: column;
     background-color: #FFFDF0;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
 }
 main{
+    display: flex;
+    flex-direction: column;
     flex: 1;                /* allows main content to fill page height */
     width: 100%;
-    padding-top: 80px;      /* space for fixed navbar (adjust if navbar taller) */
+   
     box-sizing: border-box;
+    justify-content: center;
+    padding: 5%;
 }
 footer {
   display: flex;
@@ -71,6 +75,7 @@ footer {
   border-top: 1px solid #ccc;
   margin-top: auto;
   box-sizing: border-box;
+  color: #17064A;
   flex-wrap: wrap; /* allows wrapping on very narrow screens */
 }
 
@@ -118,4 +123,23 @@ footer {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+footer a{
+    text-decoration: none;
+    color: #17064A;
+}
+footer a:hover{
+    text-decoration: underline;
+    color: black;
+    font-weight: bold;
+}
+main section{
+    padding: 4%;
+}
+main h2{
+    font-size: 40px;
+}
+main h3{
+    font-size: 20px;
 }
