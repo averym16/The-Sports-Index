@@ -6,3 +6,7 @@ h1{
     font-family: Tahoma, Arial, Helvetica, sans-serif;
     color: #17064A;
 }
+#sport_list li{
+    display: grid;
+  
+}

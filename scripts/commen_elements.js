@@ -77,7 +77,8 @@ function ensureNavbar(isBase) {
     </ul>
   `;
   // Home link points back to index for option pages
-  if (!isBase) {
+  const page = location.pathname.split("/").pop();
+  if (page === "sport.html" || page === "sport_option.html") {
     qs("#home a").setAttribute("href", "../index.html");
   }
 }
@@ -243,27 +244,46 @@ function applyPerSportTweaks({ sport, option }) {
     }
 
     // Football/Hockey headings adjustments
+    // Football/Hockey headings adjustments
     if (sport === "football" || sport === "hockey") {
-      const leaguesH3 = qs("#leagues h3");
-      if (leaguesH3) leaguesH3.textContent = "Conferences";
-      const header1 = qs("#league_headings #header1");
-      if (header1) header1.textContent = option === "nfl" ? "Division" : "Conference";
+      const leaguesP = qs("#leagues p");
+      const teamsP = qs("#teams p");
 
-      const h4 = qs("#team_headings #header4");
-      const h5 = qs("#team_headings #header5");
-      if (h4) h4.textContent = "Overall Record";
-      if (h5) h5.textContent = "Record Last 10 Years";
+      // League text
+      if (option === "nfl") {
+        if (leaguesP) leaguesP.textContent = "The NFL has 2 conferences (AFC and NFC), each with 4 divisions. Division standings drive playoff seeding and draft order.";
+        if (teamsP) teamsP.textContent = "Stats on every team currently active in the NFL.";
+      } else if (option === "nhl") {
+        if (leaguesP) leaguesP.textContent = "All NHL Conferences";
+        if (teamsP) teamsP.textContent = "Overall Record is defined as Wins – Losses – Overtime Losses.";
+      }
 
-      // Expand team header with staff columns for NFL/NHL pages
-      if (option === "nfl" || option === "nhl") {
-        const headRow = qs("#team_headings");
-        if (headRow && headRow.children.length < 8) {
-          ["Owner", "General Manager", "Head Coach"].forEach(text => {
-            const th = document.createElement("th");
-            th.textContent = text;
-            headRow.appendChild(th);
-          });
-        }
+      // Fix team headers
+      const headRow = qs("#team_headings");
+      if (headRow) {
+        headRow.innerHTML = ""; // clear existing headings
+
+        const championshipCol =
+          option === "nfl" ? "Super Bowls" :
+          option === "nhl" ? "Stanley Cups" : 
+          "Championships";
+
+        const headers = [
+          "Team",
+          "Founded",
+          championshipCol,
+          "Overall Record",
+          "Overall Record (Last 10 Years)",
+          "Owner",
+          "General Manager",
+          "Head Coach"
+        ];
+
+        headers.forEach(text => {
+          const th = document.createElement("th");
+          th.textContent = text;
+          headRow.appendChild(th);
+        });
       }
     }
 
