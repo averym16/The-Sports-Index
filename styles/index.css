@@ -3,10 +3,7 @@ h1{
     justify-content: center;
     width: 100%;
     font-size: 100px;
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
-    color: #17064A;
 }
 #sport_list li{
     display: grid;
-  
 }

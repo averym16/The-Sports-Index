@@ -248,14 +248,21 @@ function applyPerSportTweaks({ sport, option }) {
     if (sport === "football" || sport === "hockey") {
       const leaguesP = qs("#leagues p");
       const teamsP = qs("#teams p");
+      const leageheadRow = qs("#league_headings #header1");
+      const leagueheader = qs("#leagues h3");
+      
 
       // League text
       if (option === "nfl") {
+        leageheadRow.textContent="Division";
         if (leaguesP) leaguesP.textContent = "The NFL has 2 conferences (AFC and NFC), each with 4 divisions. Division standings drive playoff seeding and draft order.";
         if (teamsP) teamsP.textContent = "Stats on every team currently active in the NFL.";
-      } else if (option === "nhl") {
+        if(leagueheader) leagueheader.textContent = "Divisions";
+      } else if (option === "nhl" || option === "college_football" || option == "college_hockey") {
+        leageheadRow.textContent="Conference";
         if (leaguesP) leaguesP.textContent = "All NHL Conferences";
         if (teamsP) teamsP.textContent = "Overall Record is defined as Wins – Losses – Overtime Losses.";
+        if(leagueheader) leagueheader.textContent = "Conferences";
       }
 
       // Fix team headers
