@@ -89,13 +89,16 @@ function ensureScaffolding() {
   if (leagues && !qs("#league_table")) {
     leagues.insertAdjacentHTML(
       "beforeend",
-      `<h3>Leagues</h3><p>Top 10 club leagues in the world, along with the Champions League.</p>
-       <table id="league_table">
-         <thead><tr id="league_headings">
-           <th id="header1">Leagues</th><th>Description</th><th>Season</th><th>Teams</th><th>Schedule</th><th>Watch</th>
-         </tr></thead>
-         <tbody id="league_body"></tbody>
-       </table>`
+      `
+      <h3>Leagues</h3><p>Top 10 club leagues in the world, along with the Champions League.</p>
+      <div class = "table-wrapper"> 
+        <table id="league_table" class="sport-table">
+          <thead><tr id="league_headings">
+            <th id="header1">Leagues</th><th>Description</th><th>Season</th><th>Teams</th><th>Schedule</th><th>Watch</th>
+          </tr></thead>
+          <tbody id="league_body"></tbody>
+        </table>
+       </div>`
     );
   }
   // tournaments table (may be repurposed to teams/rivalries by load_sport_option.js)
@@ -104,12 +107,14 @@ function ensureScaffolding() {
     tournaments.insertAdjacentHTML(
       "beforeend",
       `<h3>Tournaments</h3>
-       <table id="tournament_table">
-         <thead><tr id="tournament_headings">
-           <th>Tournament</th><th>Description</th><th>When</th><th>Watch</th>
-         </tr></thead>
-         <tbody id="tournament_body"></tbody>
-       </table>`
+      <div class ="table-wrapper">
+        <table id="tournament_table" class="sport-table">
+          <thead><tr id="tournament_headings">
+            <th>Tournament</th><th>Description</th><th>When</th><th>Watch</th>
+          </tr></thead>
+          <tbody id="tournament_body"></tbody>
+        </table>
+       </div>`
     );
   }
   // teams table container (only create if section exists)
@@ -118,12 +123,14 @@ function ensureScaffolding() {
     teams.insertAdjacentHTML(
       "beforeend",
       `<h3>Teams</h3><p>Stats on every T1 and T2 teams.</p>
-       <table id="team_table">
-         <thead><tr id="team_headings">
-           <th>Team</th><th>Founded</th><th id="header4">Championships</th><th id="header5">Rank</th><th>Rank Change (Last 10 Years)</th>
-         </tr></thead>
-         <tbody id="team_body"></tbody>
-       </table>`
+      <div class ="table-wrapper"> 
+        <table id="team_table" class="sport-table">
+          <thead><tr id="team_headings">
+            <th>Team</th><th>Founded</th><th id="header4">Championships</th><th id="header5">Rank</th><th>Rank Change (Last 10 Years)</th>
+          </tr></thead>
+          <tbody id="team_body"></tbody>
+        </table>
+       </div>`
     );
   }
   // rivalries ordered list

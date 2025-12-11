@@ -1,7 +1,144 @@
-table{
-    border: 1px solid;
+/* =======================================================
+   SPORT TABLES (all)
+======================================================= */
+.sport-table{
+  width:100%;
+  max-width:1100px;
+  margin:1.5rem auto;
+  border-collapse: collapse;
+  border:2px solid #17064A;
+  background:white;
+  font-size:1rem;
 }
-th, tr, td{
-    border-bottom: 1px solid;
-    border-right: 1px solid;
+
+.sport-table th,
+.sport-table td{
+  border:2px solid #17064A;
+  padding:0.6rem 1rem;
+  text-align:center;
+  font-weight:500;
+}
+
+.sport-table td ul{
+    text-align: left;
+}
+
+.sport-table tbody tr:nth-child(even){
+  background:#f5f4ff;
+}
+
+/* header */
+.sport-table thead th{
+  font-size:1.25rem;
+  font-weight:900;
+  padding:0.8rem 1rem;
+}
+
+/* table themes */
+#league_table thead{
+  background:#E55636;
+  color:#1a1a1a; 
+}
+
+#tournament_table thead{
+  background:#2a9d8f;
+  color:white;
+}
+
+#team_table thead{
+  background:#264653;
+  color:white;
+}
+
+/* wrapper */
+.table-wrapper{ overflow-x:auto; }
+
+
+/* =======================================================
+   TEXT SCALE FOR OPTION PAGES
+======================================================= */
+
+section h3{
+  font-size:2rem;
+}
+
+section p{
+  font-size:1rem !important;
+}
+
+
+/* =======================================================
+   RIVALRIES (card list)
+======================================================= */
+
+#rivalries{
+  max-width:1100px;
+  margin:2rem auto;
+}
+
+/* ordered list */
+#rivalry_body{
+  margin-top:1rem;
+  padding-left:0;       /* keep cards centered */
+  margin-left:1.5rem;   /* offset numbering slightly */
+}
+
+/* card */
+#rivalry_body > li{
+  list-style-position:outside;
+  border:2px solid #17064A;
+  border-radius:12px;
+  padding:1.4rem 1.6rem;
+  padding-left:2rem;
+  margin:1.6rem 0;
+  background:#ffffff;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* numbers */
+#rivalry_body > li::marker{
+  font-weight:600;
+  color:#17064A;
+  font-size:1.1rem;
+}
+
+/* title */
+.rivalry-title{
+  font-weight:700;
+  font-size:1.35rem;
+  margin-bottom:0.6rem;
+  color:#17064A;
+}
+
+/* details bullets */
+.rivalry-meta{
+  margin-top:0.4rem;
+  padding-left:1.4rem;
+  list-style-type:disc;
+}
+
+.rivalry-meta li{
+  margin:0.25rem 0;
+  font-size:1.05rem;
+  color:#222;
+  list-style-type:disc;
+}
+
+/* zebra alt */
+#rivalry_body > li:nth-child(even){
+  background:#f5f4ff;
+}
+
+/* hover */
+#rivalry_body > li:hover{
+  background:#e8e6ff;
+  transform:translateY(-2px);
+  transition:0.2s;
+}
+
+/* title badge bar */
+#rivalries h3{
+  
+  color:#17064A;
+  width:fit-content;
 }
