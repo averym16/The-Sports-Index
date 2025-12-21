@@ -5,19 +5,25 @@
 }
 #option_list{
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
+  flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
   padding: 0;
 }
 
 #option_list li{
   list-style: none;
   border: 2px solid #17064A;
-  padding: 1.2rem 2rem;
+  padding: 2.25rem 2.25rem;
   border-radius: 10px;
-  background: #f7f7ff;
+  background: #d4eeff;
   min-width: 200px;
+  width: 25%;
+  height: 25%;
+ 
+  justify-content: center;
   text-align: center;
 }
 
@@ -26,5 +32,12 @@
   color: #17064A;
   font-weight: 600;
   font-size: 1.2rem;
+  justify-content: center;
   display: block;
+}
+/* hover */
+#option_list > li:hover{
+  background:#e8e6ff;
+  transform:translateY(-2px);
+  transition:0.2s;
 }

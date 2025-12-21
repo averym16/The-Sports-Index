@@ -4,6 +4,51 @@ h1{
     width: 100%;
     font-size: 100px;
 }
+
+#option{
+  width: 100%;
+  height: 100%;
+  
+}
+#sport_list{
+  display: flex;
+  gap: 2rem;
+  
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 2%;
+}
+
 #sport_list li{
-    display: grid;
+  list-style: none;
+  border: 2px solid #17064A;
+  padding: 2.25rem 2.25rem;
+  border-radius: 10px;
+  background: #d4eeff;
+  min-width: 150px;
+  width: 20%;
+  height: 20%;
+ 
+  justify-content: center;
+  text-align: center;
+}
+
+#sport_list li a{
+  text-decoration: none;
+  color: #17064A;
+  font-weight: 600;
+  font-size: 1.5rem;
+  justify-content: center;
+  display: block;
+}
+#sports h3{
+    justify-self: center;
+    font-size: 1.25rem;
+}
+/* hover */
+#sport_list > li:hover{
+  background:#e8e6ff;
+  transform:translateY(-2px);
+  transition:0.2s;
 }
