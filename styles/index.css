@@ -55,13 +55,22 @@ h1{
 .border{
     border: 3px solid black;
 }
-main section{
-    padding: 2%;
-}
+
 #about p{
     font-size: 1.25rem;
 
 }
 #about h2{
     font-size: 1.5rem;
+}
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0%;
+  max-height: 25%;
+}
+header img{
+  width: 100px;
+  height: 100px;
 }
