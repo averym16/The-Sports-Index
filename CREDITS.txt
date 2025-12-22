@@ -1,1 +1,3 @@
 Links to Sources For Data
+
+All Emojis used are from OpenMoji Library: https://openmoji.org/
