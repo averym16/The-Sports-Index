@@ -227,6 +227,33 @@ function loadDataScripts({ sport, option }) {
   }
 }
 
+function loadImages({sport, option}){
+  if ( sport !== option ) return;
+
+  const image1 = qs(".image1");
+  const image2 = qs(".image2");
+
+  if(sport == "football" ){
+    image1.setAttribute("src", "../images/football.svg" );
+    image2.setAttribute("src", "../images/stadium.svg");
+  }
+  else if ( sport == "hockey" )
+  {
+    image1.setAttribute("src", "../images/hockey.svg" );
+    image2.setAttribute("src", "../images/ice.svg");
+  }
+  else if ( sport == "soccer" )
+  {
+    image1.setAttribute("src", "../images/soccer.svg" );
+    image2.setAttribute("src", "../images/goal.svg");
+  }
+  else{
+    image1.setAttribute("src", "../images/rugby.svg" );
+    image2.setAttribute("src", "../images/giveblood.svg");
+  }
+
+}
+
 function applyPerSportTweaks({ sport, option }) {
   const isBase = isBaseSportPage({ sport, option });
 
@@ -303,6 +330,7 @@ function applyPerSportTweaks({ sport, option }) {
 
     // Page-specific copy
     if (sport === "rugby") {
+
       const leaguesP = qs("#leagues p");
       if (leaguesP) leaguesP.textContent = "Table includes all T1 Leagues along with Major League Rugby.";
       const leagues = qs("#leagues");
@@ -342,6 +370,7 @@ function initCommon() {
   ensureBreadcrumb(ctx);
   ensureOptionTabs(ctx);
   loadDataScripts(ctx);
+  loadImages(ctx);
   applyPerSportTweaks(ctx);
 }
 
