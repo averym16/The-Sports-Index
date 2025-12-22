@@ -91,11 +91,6 @@ footer {
   gap: 10px;
 }
 
-#contact_info h3 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
 #contact_list {
   display: flex;
   gap: 20px;
@@ -142,8 +137,12 @@ footer a:hover{
     color: black;
     font-weight: bold;
 }
+footer img{
+  width: 50px;
+  height: 50px;
+}
 main section{
-    padding: 0% 4% 0% 4%;
+    padding: 4% 4% 4% 4%;
 }
 main h2{
     font-size: 40px;

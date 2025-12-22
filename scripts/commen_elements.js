@@ -48,10 +48,10 @@ function ensureFooter() {
   if (!footer) return;
   footer.innerHTML = `
      <section id="contact_info">
-      <h3>Contact Us:</h3>
       <ul id="contact_list">
-        <li>Email: <a href="mailto:averymorrison26@gmail.com" target="_blank">averymorrison26@gmail.com</a></li>
-        <li>Github: <a href="https://github.com/averym16" target="_blank">averym16</a></li>
+        <li><a href="mailto:averymorrison26@gmail.com" target="_blank"><img src="../images/mail.svg"></a></li>
+        <li><a href="https://github.com/averym16" target="_blank"><img src="../images/github.svg"></a></li>
+        <li><a href="https://www.linkedin.com/in/avery-morrison-32154b156/" target="_blank"><img src="../images/linkedin.svg"></a></li>
       </ul>
     </section>
     <section id="footer_misc">
