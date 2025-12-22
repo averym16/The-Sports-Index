@@ -238,28 +238,28 @@ function loadImages({sport, option}){
   if(sport == "football" ){
     image1.setAttribute("src", "../images/football.svg" );
     image2.setAttribute("src", "../images/stadium.svg");
-    left_panel.setAttribute("src", "../images/footballgame.jpg");
-    right_panel.setAttribute("src", "..images/cfg_game.jpg");
+    left_panel.setAttribute("src", "../images/nfl.jpg");
+    right_panel.setAttribute("src", "../images/cfg_game.jpg");
   }
   else if ( sport == "hockey" )
   {
     image1.setAttribute("src", "../images/hockey.svg" );
     image2.setAttribute("src", "../images/ice.svg");
     left_panel.setAttribute("src", "../images/hockeygame.jpg");
-    right_panel.setAttribute("src", "..images/hockeyfight.jpg");
+    right_panel.setAttribute("src", "../images/hockeyfight.jpg");
   }
   else if ( sport == "soccer" )
   {
     image1.setAttribute("src", "../images/soccer.svg" );
     image2.setAttribute("src", "../images/goal.svg");
     left_panel.setAttribute("src", "../images/soccerball_and_goal.jpg");
-    right_panel.setAttribute("src", "..images/soccerfield.jpg");
+    right_panel.setAttribute("src", "../images/soccerfield.jpg");
   }
   else{
     image1.setAttribute("src", "../images/rugby.svg" );
     image2.setAttribute("src", "../images/giveblood.svg");
     left_panel.setAttribute("src", "../images/women_rugby_small.jpg");
-    right_panel.setAttribute("src", "..images/men_rugby.jpg");
+    right_panel.setAttribute("src", "../images/men_rugby.jpg");
   }
 
 }
