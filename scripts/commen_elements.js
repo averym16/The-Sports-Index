@@ -228,7 +228,7 @@ function loadDataScripts({ sport, option }) {
 }
 
 function loadImages({sport, option}){
-  if ( sport !== option ) return;
+  if ( sport !== option || sport == "home" ) return;
 
   const image1 = qs(".image1");
   const image2 = qs(".image2");
