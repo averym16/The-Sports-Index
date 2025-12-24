@@ -46,7 +46,26 @@ function ensureHead({ sport, option }) {
 function ensureFooter() {
   const footer = qs("#footer");
   if (!footer) return;
-  footer.innerHTML = `
+  if ( sport == "home" )
+  {
+   footer.innerHTML = `
+     <section id="contact_info">
+      <ul id="contact_list">
+        <li><a href="mailto:averymorrison26@gmail.com" target="_blank"><img src="images/mail.svg"></a></li>
+        <li><a href="https://github.com/averym16" target="_blank"><img src="images/github.svg"></a></li>
+        <li><a href="https://www.linkedin.com/in/avery-morrison-32154b156/" target="_blank"><img src="images/linkedin.svg"></a></li>
+      </ul>
+    </section>
+    <section id="footer_misc">
+      <ul id="footer_misc_list">
+        <li><a href="../CREDITS.txt">Sources</a></li>
+        <li>Last Updated: 10/27/2025</li>
+        <li>Licensed by <a href="../LICENSE.txt">MIT</a></li>
+      </ul>
+    </section>
+  `; 
+  }
+  else { footer.innerHTML = `
      <section id="contact_info">
       <ul id="contact_list">
         <li><a href="mailto:averymorrison26@gmail.com" target="_blank"><img src="../images/mail.svg"></a></li>
@@ -62,6 +81,7 @@ function ensureFooter() {
       </ul>
     </section>
   `;
+  }
 }
 
 function ensureNavbar(isBase) {
