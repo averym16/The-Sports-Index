@@ -46,7 +46,7 @@ function ensureHead({ sport, option }) {
 function ensureFooter() {
   const footer = qs("#footer");
   if (!footer) return;
-  if ( sport == "home" )
+  if ( document.title === "The Sports Index | Home" )
   {
    footer.innerHTML = `
      <section id="contact_info">
@@ -384,9 +384,12 @@ function applyPerSportTweaks({ sport, option }) {
       } else if (option === "college_football") {
         if (leaguesP) leaguesP.textContent = "All NCAA Division I FBS football conferences.";
       }
-      // Legal details
+    }
+    // Legal details
+    if ( sport !== "home" )
+    {
       const bc = qs("#breadcrumb");
-      if (bc) bc.insertAdjacentHTML("afterend", `<details>Use legitimate sources to stream; follow your local laws.</details>`);
+      if (bc) bc.insertAdjacentHTML("afterend", `<img src = "../images/idea.svg"/>`);
     }
   }
 }
